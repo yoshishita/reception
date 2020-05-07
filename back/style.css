@@ -1,0 +1,122 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic";
+  color: #565656;
+}
+
+a {
+  color: #565656;
+  text-decoration: none;
+}
+
+input {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic";
+}
+
+/* common */
+.wrap {
+  background-color: #dbebed;
+}
+
+
+
+
+/* login */
+.login_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  width: 500px;
+  background-color: #fff;
+  padding: 100px 0 64px;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 18px rgba(0,0,0,0.1));
+}
+
+.login_container > h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login_form {
+  font-size: 1.6rem;
+  width: 300px;
+  margin: auto;
+}
+
+.mail_container,
+.pass_container {
+  margin-bottom: 40px;
+}
+
+.mail_container > span,
+.pass_container > span {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.mail_container > input,
+.pass_container > input {
+  width: 300px;
+  padding: 8px;
+  font-size: 1.4rem;
+}
+
+.error_message {
+  display: none;
+  color: #ff3333;
+  margin-bottom: 20px;
+}
+
+.login_btn {
+  display: block;
+  margin: auto;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: #70a8c2;
+  font-size: 2rem;
+  width: 200px;
+  height: 50px;
+}
+
+
+/* menu */
+ 
+.side_menu {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  font-size: 2rem;
+  background-color: #dbebed;
+}
+
+.menu_list {
+  margin-top: 55px;
+}
+
+.menu_item {
+  padding: 25px 0 25px 50px;
+}
+
+.menu_item.current {
+  background-color: #fff;
+}
+
+.main {
+  margin-left: 250px;
+}
+
+.main > h1 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  padding: 80px 0 40px 80px;
+}

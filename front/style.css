@@ -1,0 +1,207 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic";
+  background-color: #dbebed;
+  text-align: center;
+  color: #565656;
+}
+
+a {
+  color: #565656;
+  text-decoration: none;
+}
+
+
+/* common */
+
+.button_container {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  width: 890px;
+  margin: auto;
+}
+
+.call_button {
+  display: block;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-right: 40px;
+  padding: 64px 0;
+  width: 270px;
+  filter: drop-shadow(0 0 18px rgba(0,0,0,0.1));
+}
+
+.call_button:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+
+/* modal */
+
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+  width: 560px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 80px 0 64px;
+  filter: drop-shadow(0 0 18px rgba(0,0,0,0.1));
+  z-index: 1000;
+  transition: opacity .3s ease;
+}
+
+.modal > h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.modal > p {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.modal >a.ok {
+  display: inline-block;
+  background-color: #70a8c2;
+  color: #fff;
+  font-size: 2.4rem;
+  width: 190px;
+  line-height: 80px;
+  border-radius: 8px;
+  margin-right: 50px;
+}
+
+.modal >a.cancel {
+  display: inline-block;
+  background-color: #a9a9a9;
+  color: #fff;
+  font-size: 2.4rem;
+  width: 190px;
+  line-height: 80px;
+  border-radius: 8px;
+}
+
+.modal.delivery > h3,
+.modal.general > h3 {
+  margin-bottom: 88px;
+}
+
+.modal.member > h3 {
+  top: 0;
+  color: #70a8c2;
+}
+
+.modal_bg {
+  opacity: 0;
+  transition: opacity .3s ease;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.3);
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+
+/* index */
+
+.index_title {
+  margin-top: 120px;
+}
+
+.index_title > img{
+  width: 542px;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.1));
+}
+
+.index_text {
+  font-size: 2rem;
+  line-height: 2;
+  margin-top: 64px;
+}
+
+.button_container.index {
+  margin-top: 50px;
+}
+
+.call_button > h2 {
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.call_button > img {
+  display: block;
+  width: 40px;
+  margin: 30px auto;
+}
+
+.call_button.index > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 48px;
+}
+
+.call_button.index > div > span {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.call_button >div > span:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/* members */
+
+.back {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.back > img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 50px;
+}
+
+.members_title {
+  margin-top: 80px;
+  font-size: 3rem;
+  font-weight: inherit;
+}
+
+.button_container.members {
+  margin: 80px auto 40px;
+}
+
+.call_button.members {
+  margin-bottom: 40px;
+}
+
+.call_button.members > h2 {
+  color: #70a8c2;
+  margin-bottom: 30px;
+}
+
+.call_button.members > span {
+  font-size: 1.6rem;
+}

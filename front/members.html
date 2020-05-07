@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Reception</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="back" href="./index.html"><img src="./img/back.png"></a>
+  <h1 class="members_title">担当者を選択してください</h1>
+  <div class="button_container members">
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+    <a class="call_button members member_open">
+      <h2>田中&nbsp;太郎</h2>
+      <span>〇〇事業部</span>
+    </a>
+  </div>
+
+  <!-- member modal -->
+  <div class="modal member" id="member_modal">
+    <h3>田中&nbsp;太郎</h3>
+    <p>〇〇事業部</p>
+    <a class="ok">呼び出し</a>
+    <a class="cancel">戻る</a>
+  </div>
+  <!-- member modal -->
+
+  <!-- completion modal -->
+  <div class="modal completion" id="completion_modal">
+    <h3>お呼び出しが完了しました</h3>
+    <p>少々お待ちください</p>
+    <a class="cancel" id="member_complete">戻る</a>
+  </div>
+  <!-- completion modal -->
+
+  <!-- modal background -->
+  <div class="modal_bg" id="modal_bg"></div>
+  <!-- modal background -->
+
+  <script>
+    //height
+    var height = window.parent.screen.height;
+    function modalTop(){
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var modalTop = ((height - scrollTop) * 0.5) + scrollTop + "px";
+      return modalTop;
+    }
+
+    //bg
+    var modal_bg = document.getElementById("modal_bg");
+
+    //member
+    var member_open = document.getElementsByClassName("member_open");
+    var member = document.getElementById("member_modal");
+
+    for(var i = 0; i < member_open.length; i++) {
+      member_open[i].addEventListener("click", function() {
+        member.style.opacity = "1";
+        member.style.pointerEvents = "auto";
+        member.style.top = modalTop();
+        modal_bg.style.opacity = "1";
+        modal_bg.style.pointerEvents = "auto";
+        modal_bg.style.zIndex = "100";
+      });
+    }
+
+    //completion
+    var completion_open = document.getElementsByClassName("ok");
+    var completion = document.getElementById("completion_modal");
+
+    for(var i = 0; i < completion_open.length; i++) {
+      completion_open[i].addEventListener("click", function(){
+        member.style.opacity = "0";
+        member.style.pointerEvents = "none";
+        member.style.transition = "inherit";
+        completion.style.transition = "inherit";
+        completion.style.opacity = "1";
+        completion.style.pointerEvents = "auto";
+        completion.style.top = modalTop();
+      });
+    }
+
+    //close
+    var close = document.getElementsByClassName("cancel");
+
+    for(var i = 0; i < close.length; i++) {
+      close[i].addEventListener("click", function() {
+        member.style.opacity = "0";
+        member.style.pointerEvents = "none";
+        completion.style.opacity = "0";
+        completion.style.pointerEvents = "none";
+        modal_bg.style.opacity = "0";
+        modal_bg.style.pointerEvents = "none";
+        modal_bg.style.zIndex = "-1";
+      });
+    }
+
+    var member_complete = document.getElementById("member_complete");
+
+    member_complete.addEventListener("click", function(){
+      window.location.href = "./index.html";
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Reception</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1 class="index_title">
+    <img src="./img/12grid.png" alt="12grid">
+  </h1>
+  <p class="index_text">
+    ご来社ありがとうございます<br>
+    御用の方は下のボタンよりお手続きをお願い致します
+  </p>
+  <div class="button_container index">
+    <a href="./members.html" class="call_button index">
+      <h2>担当者呼び出し</h2>
+      <img src="./img/dots.png">
+      <div>
+        <span>アポイントのある方</span>
+        <span>社員個人に御用の方</span>
+      </div>
+    </a>
+    <a class="call_button index" id="delivery_open">
+      <h2>配達受付</h2>
+      <img src="./img/dots.png">
+      <div>
+        <span>配達業者の方</span>
+      </div>
+    </a>
+    <a class="call_button index" id="general_open">
+      <h2>総合受付</h2>
+      <img src="./img/dots.png">
+      <div>
+        <span>その他御用の方</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- delivery modal -->
+  <div class="modal delivery" id="delivery_modal">
+    <h3>配達受付</h3>
+    <a class="ok">呼び出し</a>
+    <a class="cancel">戻る</a>
+  </div>
+  <!-- delivery modal -->
+
+  <!-- general modal -->
+  <div class="modal general" id="general_modal">
+    <h3>総合受付</h3>
+    <a class="ok">呼び出し</a>
+    <a class="cancel">戻る</a>
+  </div>
+  <!-- general modal -->
+
+  <!-- completion modal -->
+  <div class="modal completion" id="completion_modal">
+    <h3>お呼び出しが完了しました</h3>
+    <p>少々お待ちください</p>
+    <a class="cancel">戻る</a>
+  </div>
+  <!-- completion modal -->
+
+  <!-- modal background -->
+  <div class="modal_bg" id="modal_bg"></div>
+  <!-- modal background -->
+
+  <script>
+    //bg
+    var modal_bg = document.getElementById("modal_bg");
+
+    //delivery
+    var delivery_open = document.getElementById('delivery_open');
+    var delivery = document.getElementById('delivery_modal');
+
+    delivery_open.addEventListener("click", function() {
+      delivery.style.opacity = "1";
+      delivery.style.pointerEvents = "auto";
+      modal_bg.style.opacity = "1";
+      modal_bg.style.pointerEvents = "auto";
+      modal_bg.style.zIndex = "100";
+    });
+
+    //general
+    var general_open = document.getElementById("general_open");
+    var general = document.getElementById("general_modal");
+
+    general_open.addEventListener("click", function() {
+      general.style.opacity = "1";
+      general.style.pointerEvents = "auto";
+      modal_bg.style.opacity = "1";
+      modal_bg.style.pointerEvents = "auto";
+      modal_bg.style.zIndex = "100";
+    });
+
+    //completion
+    var completion_open = document.getElementsByClassName("ok");
+    var completion = document.getElementById("completion_modal");
+
+    for(var i = 0; i < completion_open.length; i++) {
+      completion_open[i].addEventListener("click", function(){
+        delivery.style.transition = "inherit";
+        delivery.style.opacity = "0";
+        delivery.style.pointerEvents = "none";
+        general.style.transition = "inherit";
+        general.style.opacity = "0";
+        general.style.pointerEvents = "none";
+        completion.style.transition = "inherit";
+        completion.style.opacity = "1";
+        completion.style.pointerEvents = "auto";
+      });
+    }
+
+    //close
+    var close = document.getElementsByClassName("cancel");
+
+    for(var i = 0; i < close.length; i++) {
+      close[i].addEventListener("click", function() {
+        delivery.style.opacity = "0";
+        delivery.style.pointerEvents = "none";
+        general.style.opacity = "0";
+        general.style.pointerEvents = "none";
+        completion.style.opacity = "0";
+        completion.style.pointerEvents = "none";
+        modal_bg.style.opacity = "0";
+        modal_bg.style.pointerEvents = "none";
+        modal_bg.style.zIndex = "-1";
+      });
+    }
+  </script>
+</body>
+</html>
